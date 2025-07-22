@@ -41,20 +41,28 @@ library(rio)
 library(epitools)
 library(rstatix)
 ```
+*NB* If you get a message saying that a package does not exist, you need to install it first with `install.packages("name_of_package")`
 :::
 
 <br>**SELECT THE RELEVANT TAB BELOW FOR YOUR DATA**
 
-::::::::::::::::::::::::::::: panel-tabset
+:::::::::::::::::::::::::::::: panel-tabset
 ### **GOODNESS OF FIT**
 
 ::: {.callout-tip collapse="true" title="Click to read the Introduction" icon="true"}
 This example analyzes if observed frequencies of combinations of pea phenotypes (wround/wrinkled shape and green/yellow colour) match what we would expect from a dihybrid cross if the two genes controlling shape and colour are on different chromosomes (independent assortment).
 :::
 
-<br> **1. Download the Excel file *'chi-sq goodness of fit.xlsx'* from Canvas and save it to a folder that you will use as your working directory.**
+<br> **1. Download the Excel file `chi-sq goodness of fit.xlsx`** from Canvas and save it to a folder that you will use as your working directory (either in RStudio Cloud or in RStudio on your own laptop).
 
-In RStudio, locate the file and set that location as your working directory.
+::: {.callout-note collapse="true" title="Upload excel file to RStudio Cloud" icon="true"}
+-   Check that the data in the file is 'tidy'
+-   Upload it to RStudio Cloud, saving it to a folder for this Statistics Workshop 4 session (*NB* If you are using RStudio on your own laptop, simply save the excel file to a relevant folder on your laptop).
+
+![Uploading a file to RStudio](upload gof.png){.lightbox width="70%"}
+
+-   In RStudio, locate the file and set the folder location as your working directory.
+:::
 
 <br> **2. Import the file to RStudio and store it as a dataframe called `mendel`.**<br> The head() function shows us up to the first 6 rows (NB there are only 4 rows in this dataframe).<br> The summarise_all(class) function shows us what type of data is stored in the dataframe.
 
@@ -320,9 +328,16 @@ save(mendel.long, file = "mendel_long.RData")
 This example assesses if there is a relationship between one categorical variable, namely mortality (surviving or dying) on the RMS Titanic, and another categorical variable of gender. In other words, was survival linked to the gender of the people on the ship?
 :::
 
-<br> **1. Download the Excel file *`titanic table data.xlsx`* from Canvas and save it to a folder that you will use as your working directory.**
+<br> **1. Download the Excel file `titanic table data.xlsx`** from Canvas and save it to a folder that you will use as your working directory (either in RStudio Cloud or in RStudio on your own laptop).
 
-In RStudio, locate the file and set that location as your working directory.
+::: {.callout-note collapse="true" title="Upload excel file to RStudio Cloud" icon="true"}
+-   Check that the data in the file is 'tidy'
+-   Upload it to RStudio Cloud, saving it to a folder for this Statistics Workshop 4 session (*NB* If you are using RStudio on your own laptop, simply save the excel file to a relevant folder on your laptop).
+
+![Uploading a file to RStudio](upload titanic.png){.lightbox width="70%"}
+
+-   In RStudio, locate the file and set the folder location as your working directory.
+:::
 
 <br> **2. Import the file to RStudio and store it as a dataframe called *`titanic`*.**<br>
 
@@ -594,8 +609,8 @@ Odds ratio = 11.4 The odds of dying for men were 11.4 times greater than for wom
 :::
 
 ::: {.callout-important collapse="true" title="Interpreting the Odds Ratio" icon="true"}
-The Odds ratio value depends on which category appears first for each factor in your contingency table.<br>
-<br>In this example, 'Died' appears first for the Survival factor; 'Male' appears first for the Gender factor.
+The Odds ratio value depends on which category appears first for each factor in your contingency table.<br> <br>In this example, 'Died' appears first for the Survival factor; 'Male' appears first for the Gender factor.
+
 ```{r}
 #| label: odds_interp
 #| echo: false
@@ -603,6 +618,7 @@ The Odds ratio value depends on which category appears first for each factor in 
 titanConTab |>
   kable(align = 'l')
 ```
+
 Consequently, the odds ratio of 11.4 means that the odds of Men dying than surviving (1329/338) is 11.4 times the odds of women dying than surviving (109/316).
 :::
 
@@ -620,9 +636,16 @@ Consequently, the odds ratio of 11.4 means that the odds of Men dying than survi
 The McNemar test can be used to test if frequencies of paired categories are related - a sort of 'before' and 'after' arrangement where the same people are being tested. <br><br> This example analyses if an intervention can change the behaviour of participants in the study. 31 people who used electronic cigarettes ('vapers') and 31 people who did not use electronic cigarettes ('non-vapers') were shown a video to show the harmful effects of vaping. After 6 months, each person was asked if they used electronic cigarettes. Consequently, each participant was 'measured' twice; once before the video and once after. The 'before' and 'after' measurements are therefore related because they come from the same person.
 :::
 
-<br> **1. Download the Excel file *mcnemar data.xlsx* from Canvas and save it to a folder that you will use as your working directory.**
+<br> **1. Download the Excel file `mcnemar data.xlsx`** from Canvas and save it to a folder that you will use as your working directory (either in RStudio Cloud or in RStudio on your own laptop).
 
-In RStudio, locate the file and set that location as your working directory.
+::: {.callout-note collapse="true" title="Upload excel file to RStudio Cloud" icon="true"}
+-   Check that the data in the file is 'tidy'
+-   Upload it to RStudio Cloud, saving it to a folder for this Statistics Workshop 4 session (*NB* If you are using RStudio on your own laptop, simply save the excel file to a relevant folder on your laptop).
+
+![Uploading a file to RStudio](upload mcnemar.png){.lightbox width="70%"}
+
+-   In RStudio, locate the file and set the folder location as your working directory.
+:::
 
 <br> **2. Import the file to RStudio and store it as a dataframe called *smoke*.**<br>
 
@@ -763,4 +786,4 @@ P = 0.007, so there is a statistically significant association. Vapers and non-v
 :::
 
 <br> **6. Effect size: odds ratio**<br> For the McNemar test, this is simply the ratio of the larger number of people who changed behaviour divded by the smaller number of people who changed behaviour. <br><br> In this case, we had 21 people who were vapers who became non-vapers and 6 people who were non-vapers who became vapers.<br><br> Therefore the Odds Ratio = 21/6 = 3.5<br><br> Vapers were 3.5 times more likely to change their behaviour than non-vapers.
-:::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::
