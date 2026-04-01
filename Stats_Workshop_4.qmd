@@ -47,7 +47,7 @@ library(rstatix)
 
 <br>**SELECT THE RELEVANT TAB BELOW FOR YOUR DATA**
 
-::::::::::::::::::::::::::::::::: panel-tabset
+::::::::::::::::::::::::::::::::::: panel-tabset
 ### **GOODNESS OF FIT**
 
 ::: {.callout-tip collapse="true" title="Click to read the Introduction" icon="true"}
@@ -201,11 +201,12 @@ mendel |>
   select(Observed, Expected) |>
   cramer_v()
 ```
+
 If you look at the interpretation tab below, you will see that the effect size is 'small'. (NB there are 4 categories here, so k=4)
 :::
 
 ::: {.callout-note collapse="true" title="Cramer's V Interpretation" icon="false"}
-![Cramer's V goodness of fit](Cramer's_V_goodness.png){width=700}
+![Cramer's V goodness of fit](Cramer's_V_goodness.png){width="700"}
 :::
 
 <br>
@@ -452,6 +453,7 @@ titanConTab <- xtabs(Count ~ Survival + Gender, data = titanic)
 titanConTab |>
   kable(align = 'l')
 ```
+**Note**: this is a 2 x 2 contingency table; *ie*, there are 2 rows and 2 columns.
 :::
 
 <br> <br> **5. Create a mosaic plot**<br> This is a nice way to visualise a contingency table.
@@ -622,13 +624,12 @@ Consequently, the odds ratio of 11.4 means that the odds of Men dying than survi
 
 <br><br> **(b)** For contingency tables bigger than 2x2, *eg* a 3x2 or 3x3 table, use **Cramer's V** effect size.<br> The r script for that in this case would be:<br>
 
-`titanConTab |>`<br> `cramer_v()`<br> <br> 
-Cramer's V ranges from 0 (no association between factors) to 1 (complete association). The tab below shows how to interpret the Cramer's V value obtained.<br>
+`titanConTab |>`<br> `cramer_v()`<br> <br> Cramer's V ranges from 0 (no association between factors) to 1 (complete association). The tab below shows how to interpret the Cramer's V value obtained.<br>
 
 ::: {.callout-note collapse="true" title="Cramer's V Interpretation" icon="false"}
-![Cramer's V contingency table](Cramer's_V_contingency.png){width=700}
+![Cramer's V contingency table](Cramer's_V_contingency.png){width="700"}
 
-The above example is a 2 x 2 contingency table. If it had been a 3 x 2 table, k = 2, just as it is for a 2 x 2 table.  If there were 3 rows and 4 columns, k = 3.
+The above example is a 2 x 2 contingency table. If it had been a 3 x 2 table, k = 2, just as it is for a 2 x 2 table. If there were 3 rows and 4 columns, k = 3.
 :::
 
 ### **CONTINGENCY ANALYSIS - RELATED DATA**
@@ -787,4 +788,4 @@ P = 0.007, so there is a statistically significant association. Vapers and non-v
 :::
 
 <br> **6. Effect size: odds ratio**<br> For the McNemar test, this is simply the ratio of the larger number of people who changed behaviour divded by the smaller number of people who changed behaviour. <br><br> In this case, we had 21 people who were vapers who became non-vapers and 6 people who were non-vapers who became vapers.<br><br> Therefore the Odds Ratio = 21/6 = 3.5<br><br> Vapers were 3.5 times more likely to change their behaviour than non-vapers.
-:::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::
