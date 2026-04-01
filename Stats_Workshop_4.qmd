@@ -41,12 +41,13 @@ library(rio)
 library(epitools)
 library(rstatix)
 ```
+
 *NB* If you get a message saying that a package does not exist, you need to install it first with `install.packages("name_of_package")`
 :::
 
 <br>**SELECT THE RELEVANT TAB BELOW FOR YOUR DATA**
 
-:::::::::::::::::::::::::::::: panel-tabset
+::::::::::::::::::::::::::::::::: panel-tabset
 ### **GOODNESS OF FIT**
 
 ::: {.callout-tip collapse="true" title="Click to read the Introduction" icon="true"}
@@ -59,7 +60,7 @@ This example analyzes if observed frequencies of combinations of pea phenotypes 
 -   Check that the data in the file is 'tidy'
 -   Upload it to RStudio Cloud, saving it to a folder for this Statistics Workshop 4 session (*NB* If you are using RStudio on your own laptop, simply save the excel file to a relevant folder on your laptop).
 
-![Uploading a file to RStudio](upload gof.png){.lightbox width="70%"}
+![Uploading a file to RStudio](upload%20gof.png){.lightbox width="70%"}
 
 -   In RStudio, locate the file and set the folder location as your working directory.
 :::
@@ -191,7 +192,7 @@ mendel |>
 1.  Selects the Observed and the Expected columns from the dataframe
 2.  Carries out Cramer's V effect size calculation for those columns of data
 
-::: {.callout-note collapse="true" title="Click to see the output" icon="false"}
+::: {.callout-note collapse="true" title="Click to see the Cramer's V output" icon="false"}
 ```{r}
 #| label: effsize.mendel1
 #| echo: false
@@ -200,14 +201,11 @@ mendel |>
   select(Observed, Expected) |>
   cramer_v()
 ```
+If you look at the interpretation tab below, you will see that the effect size is 'small'. (NB there are 4 categories here, so k=4)
+:::
 
-Cramer's V ranges from 0 (no effect size between observed and expected data) to 1 (huge effect size):<br>
-
--   Cramer's V \> 0.05 indicates a weak effect or difference<br>
--   Cramer's V \> 0.1 indicates moderate effect or difference<br>
--   Cramer's V \> 0.25 indicates a strong effect or difference<br>
-
-Here, one could interpret this as a weak to moderate effect (even though the difference between observed and expected frequencies for all categories are not statistically significant).
+::: {.callout-note collapse="true" title="Cramer's V Interpretation" icon="false"}
+![Cramer's V goodness of fit](Cramer's_V_goodness.png){width=700}
 :::
 
 <br>
@@ -334,7 +332,7 @@ This example assesses if there is a relationship between one categorical variabl
 -   Check that the data in the file is 'tidy'
 -   Upload it to RStudio Cloud, saving it to a folder for this Statistics Workshop 4 session (*NB* If you are using RStudio on your own laptop, simply save the excel file to a relevant folder on your laptop).
 
-![Uploading a file to RStudio](upload titanic.png){.lightbox width="70%"}
+![Uploading a file to RStudio](upload%20titanic.png){.lightbox width="70%"}
 
 -   In RStudio, locate the file and set the folder location as your working directory.
 :::
@@ -624,11 +622,14 @@ Consequently, the odds ratio of 11.4 means that the odds of Men dying than survi
 
 <br><br> **(b)** For contingency tables bigger than 2x2, *eg* a 3x2 or 3x3 table, use **Cramer's V** effect size.<br> The r script for that in this case would be:<br>
 
-`titanConTab |>`<br> `cramer_v()`<br> <br> Cramer's V ranges from 0 (no association between factors) to 1 (complete association):<br>
+`titanConTab |>`<br> `cramer_v()`<br> <br> 
+Cramer's V ranges from 0 (no association between factors) to 1 (complete association). The tab below shows how to interpret the Cramer's V value obtained.<br>
 
--   Cramer's V \> 0.05 indicates a weak association<br>
--   Cramer's V \> 0.1 indicates moderate association<br>
--   Cramer's V \> 0.25 indicates a strong association<br> <br>
+::: {.callout-note collapse="true" title="Cramer's V Interpretation" icon="false"}
+![Cramer's V contingency table](Cramer's_V_contingency.png){width=700}
+
+The above example is a 2 x 2 contingency table. If it had been a 3 x 2 table, k = 2, just as it is for a 2 x 2 table.  If there were 3 rows and 4 columns, k = 3.
+:::
 
 ### **CONTINGENCY ANALYSIS - RELATED DATA**
 
@@ -642,7 +643,7 @@ The McNemar test can be used to test if frequencies of paired categories are rel
 -   Check that the data in the file is 'tidy'
 -   Upload it to RStudio Cloud, saving it to a folder for this Statistics Workshop 4 session (*NB* If you are using RStudio on your own laptop, simply save the excel file to a relevant folder on your laptop).
 
-![Uploading a file to RStudio](upload mcnemar.png){.lightbox width="70%"}
+![Uploading a file to RStudio](upload%20mcnemar.png){.lightbox width="70%"}
 
 -   In RStudio, locate the file and set the folder location as your working directory.
 :::
@@ -786,4 +787,4 @@ P = 0.007, so there is a statistically significant association. Vapers and non-v
 :::
 
 <br> **6. Effect size: odds ratio**<br> For the McNemar test, this is simply the ratio of the larger number of people who changed behaviour divded by the smaller number of people who changed behaviour. <br><br> In this case, we had 21 people who were vapers who became non-vapers and 6 people who were non-vapers who became vapers.<br><br> Therefore the Odds Ratio = 21/6 = 3.5<br><br> Vapers were 3.5 times more likely to change their behaviour than non-vapers.
-::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::
