@@ -24,9 +24,9 @@ library(knitr)
 
 This workshop introduces you to analysing:<br>
 
--   **Chi-square goodness of fit test**: to test of observed frequencies match expected frequencies or proportions<br>
--   **Contingency analysis for independent data**: to assess if one set of categorical variables is associated with another independent categorical variable<br>
--   **Contingency analysis for related/paired data**: to assess if one set of categorical variables is associated with another related categorical variable<br>
+- **Chi-square goodness of fit test**: to test of observed frequencies match expected frequencies or proportions<br>
+- **Contingency analysis for independent data**: to assess if one set of categorical variables is associated with another independent categorical variable<br>
+- **Contingency analysis for related/paired data**: to assess if one set of categorical variables is associated with another related categorical variable<br>
 
 First, open RStudio and a new R Script file. Load the packages that you will be using. (Remember, if you are using a University computer or if you have not previously installed any of these packages before, you will need to install them first using `install.packages("nameofpackage")`).
 
@@ -54,15 +54,15 @@ library(rstatix)
 This example analyzes if observed frequencies of combinations of pea phenotypes (wround/wrinkled shape and green/yellow colour) match what we would expect from a dihybrid cross if the two genes controlling shape and colour are on different chromosomes (independent assortment).
 :::
 
-<br> **1. Download the Excel file `chi-sq goodness of fit.xlsx`** from Canvas and save it to a folder that you will use as your working directory (either in RStudio Cloud or in RStudio on your own laptop).
+<br> **1. Download the Excel file** [chi-sq goodness of fit.xlsx](https://kingstonuniversity-my.sharepoint.com/:x:/g/personal/ku11417_kingston_ac_uk/IQBsFJfG6pfLSbL2JAsDIqcGAdmJAUJQWTI4PIlHWRn6Pnk?e=1yJGcK) from Canvas and save it to a folder that you will use as your working directory (either in RStudio Cloud or in RStudio on your own laptop).
 
 ::: {.callout-note collapse="true" title="Upload excel file to RStudio Cloud" icon="true"}
--   Check that the data in the file is 'tidy'
--   Upload it to RStudio Cloud, saving it to a folder for this Statistics Workshop 4 session (*NB* If you are using RStudio on your own laptop, simply save the excel file to a relevant folder on your laptop).
+- Check that the data in the file is 'tidy'
+- Upload it to RStudio Cloud, saving it to a folder for this Statistics Workshop 4 session (*NB* If you are using RStudio on your own laptop, simply save the excel file to a relevant folder on your laptop).
 
 ![Uploading a file to RStudio](upload%20gof.png){.lightbox width="70%"}
 
--   In RStudio, locate the file and set the folder location as your working directory.
+- In RStudio, locate the file and set the folder location as your working directory.
 :::
 
 <br> **2. Import the file to RStudio and store it as a dataframe called `mendel`.**<br> The head() function shows us up to the first 6 rows (NB there are only 4 rows in this dataframe).<br> The summarise_all(class) function shows us what type of data is stored in the dataframe.
@@ -327,15 +327,15 @@ save(mendel.long, file = "mendel_long.RData")
 This example assesses if there is a relationship between one categorical variable, namely mortality (surviving or dying) on the RMS Titanic, and another categorical variable of gender. In other words, was survival linked to the gender of the people on the ship?
 :::
 
-<br> **1. Download the Excel file `titanic table data.xlsx`** from Canvas and save it to a folder that you will use as your working directory (either in RStudio Cloud or in RStudio on your own laptop).
+<br> **1. Download the Excel file** [titanic table data.xlsx](https://kingstonuniversity-my.sharepoint.com/:x:/g/personal/ku11417_kingston_ac_uk/IQCPKO6Av36uT7ZG9imVe4kIAfr8wcouVVmFEitQ6Bim-38?e=Jm0dVk) from Canvas and save it to a folder that you will use as your working directory (either in RStudio Cloud or in RStudio on your own laptop).
 
 ::: {.callout-note collapse="true" title="Upload excel file to RStudio Cloud" icon="true"}
--   Check that the data in the file is 'tidy'
--   Upload it to RStudio Cloud, saving it to a folder for this Statistics Workshop 4 session (*NB* If you are using RStudio on your own laptop, simply save the excel file to a relevant folder on your laptop).
+- Check that the data in the file is 'tidy'
+- Upload it to RStudio Cloud, saving it to a folder for this Statistics Workshop 4 session (*NB* If you are using RStudio on your own laptop, simply save the excel file to a relevant folder on your laptop).
 
 ![Uploading a file to RStudio](upload%20titanic.png){.lightbox width="70%"}
 
--   In RStudio, locate the file and set the folder location as your working directory.
+- In RStudio, locate the file and set the folder location as your working directory.
 :::
 
 <br> **2. Import the file to RStudio and store it as a dataframe called *`titanic`*.**<br>
@@ -346,8 +346,8 @@ titanic <- import("titanic table data.xlsx")
 
 <br> Check the dataframe
 
--   head() returns the rows of the dataframe.<br>
--   summarise_all(class) shows us the types of data of each variable.
+- head() returns the rows of the dataframe.<br>
+- summarise_all(class) shows us the types of data of each variable.
 
 ```{r}
 #| lable: tit.str
@@ -453,6 +453,7 @@ titanConTab <- xtabs(Count ~ Survival + Gender, data = titanic)
 titanConTab |>
   kable(align = 'l')
 ```
+
 **Note**: this is a 2 x 2 contingency table; *ie*, there are 2 rows and 2 columns.
 :::
 
@@ -638,15 +639,15 @@ The above example is a 2 x 2 contingency table. If it had been a 3 x 2 table, k 
 The McNemar test can be used to test if frequencies of paired categories are related - a sort of 'before' and 'after' arrangement where the same people are being tested. <br><br> This example analyses if an intervention can change the behaviour of participants in the study. 31 people who used electronic cigarettes ('vapers') and 31 people who did not use electronic cigarettes ('non-vapers') were shown a video to show the harmful effects of vaping. After 6 months, each person was asked if they used electronic cigarettes. Consequently, each participant was 'measured' twice; once before the video and once after. The 'before' and 'after' measurements are therefore related because they come from the same person.
 :::
 
-<br> **1. Download the Excel file `mcnemar data.xlsx`** from Canvas and save it to a folder that you will use as your working directory (either in RStudio Cloud or in RStudio on your own laptop).
+<br> **1. Download the Excel file** [mcnemar data.xlsx](https://kingstonuniversity-my.sharepoint.com/:x:/g/personal/ku11417_kingston_ac_uk/IQD24Ggg08T-TIeSmC6NMhUZAbrFFxTqhcb0_G0oLHtGHd0?e=s3ouH7) from Canvas and save it to a folder that you will use as your working directory (either in RStudio Cloud or in RStudio on your own laptop).
 
 ::: {.callout-note collapse="true" title="Upload excel file to RStudio Cloud" icon="true"}
--   Check that the data in the file is 'tidy'
--   Upload it to RStudio Cloud, saving it to a folder for this Statistics Workshop 4 session (*NB* If you are using RStudio on your own laptop, simply save the excel file to a relevant folder on your laptop).
+- Check that the data in the file is 'tidy'
+- Upload it to RStudio Cloud, saving it to a folder for this Statistics Workshop 4 session (*NB* If you are using RStudio on your own laptop, simply save the excel file to a relevant folder on your laptop).
 
 ![Uploading a file to RStudio](upload%20mcnemar.png){.lightbox width="70%"}
 
--   In RStudio, locate the file and set the folder location as your working directory.
+- In RStudio, locate the file and set the folder location as your working directory.
 :::
 
 <br> **2. Import the file to RStudio and store it as a dataframe called *smoke*.**<br>
@@ -658,8 +659,8 @@ smoke <- import("mcnemar data.xlsx")
 
 <br>**3. Examine the data**<br>
 
--   The head() function shows us the first 6 rows so we can check the arrangement of the data.<br>
--   The summarise_all(class) function shows us what type of data is stored in the dataframe.<br>
+- The head() function shows us the first 6 rows so we can check the arrangement of the data.<br>
+- The summarise_all(class) function shows us what type of data is stored in the dataframe.<br>
 
 ```{r}
 #| label: smoke.ex
@@ -783,8 +784,8 @@ mcnemar_test(smokeConTab) |>
 
 P = 0.007, so there is a statistically significant association. Vapers and non-vapers responded to intervention differently; in other words, the response to the video was associated with their vaping status at the start.<br>
 
--   Of 31 non-vapers at the start, most (25) were still non-vapers 6 months after intervention; only 6 changed their habit<br>
--   Of 31 vapers at the start, most (21) changed to become non-vapers after 6 months, and only 10 remained vapers<br> <br> <br>
+- Of 31 non-vapers at the start, most (25) were still non-vapers 6 months after intervention; only 6 changed their habit<br>
+- Of 31 vapers at the start, most (21) changed to become non-vapers after 6 months, and only 10 remained vapers<br> <br> <br>
 :::
 
 <br> **6. Effect size: odds ratio**<br> For the McNemar test, this is simply the ratio of the larger number of people who changed behaviour divded by the smaller number of people who changed behaviour. <br><br> In this case, we had 21 people who were vapers who became non-vapers and 6 people who were non-vapers who became vapers.<br><br> Therefore the Odds Ratio = 21/6 = 3.5<br><br> Vapers were 3.5 times more likely to change their behaviour than non-vapers.
